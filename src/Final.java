@@ -9,36 +9,33 @@ public class Final {
     static Scanner ss=new Scanner(System.in);
     static boolean colorb=true;
     static String[][] tablero = {
-            {"|a8|", "|b8|", "|c8|", "|d8|", "|e8|", "|f8|", "|g8|", "|h8|"},
-            {"|a7|", "|b7|", "|c7|", "|d7|", "|e7|", "|f7|", "|g7|", "|h7|"},
-            {"|a6|", "|b6|", "|c6|", "|d6|", "|e6|", "|f6|", "|g6|", "|h6|"},
-            {"|a5|", "|b5|", "|c5|", "|d5|", "|e5|", "|f5|", "|g5|", "|h5|"},
-            {"|a4|", "|b4|", "|c4|", "|d4|", "|e4|", "|f4|", "|g4|", "|h4|"},
-            {"|a3|", "|b3|", "|c3|", "|d3|", "|e3|", "|f3|", "|g3|", "|h3|"},
-            {"|a2|", "|b2|", "|c2|", "|d2|", "|e2|", "|f2|", "|g2|", "|h2|"},
-            {"|a1|", "|b1|", "|c1|", "|d1|", "|e1|", "|f1|", "|g1|", "|h1|"}
+            {"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"},
+            {"a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7"},
+            {"a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6"},
+            {"a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5"},
+            {"a4", "b4", "c4", "d4", "e4", "f4", "g4", "h4"},
+            {"a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3"},
+            {"a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"},
+            {"a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"}
     };
 
     static void presentacion(){
      System.out.println("""
-              --------------------------------------
-             |Bienvenido al reto Nº1 de programación|
-             |Hoy, jugamos al ajedrez.              |
-              --------------------------------------
+             ---------------------------------------
+             Bienvenido al reto Nº1 de programación
+             Hoy, jugamos al ajedrez.              
+             --------------------------------------
              """);
-
-        System.out.println();
  }
     public static void getcolor(){
         System.out.println("""
-                 
-                 ------------------------------------------
-                |Seleccione la funcion que desea realizar: |
-                |                      --------------------
-                |1-Jugar Pieza Blanca |
-                |2-Juega Pieza Negra  |
-                |-Salir               |
-                 ---------------------""");
+                ------------------------------------------
+                Seleccione la funcion que desea realizar: 
+                ------------------------------------------
+                1-Jugar Pieza Blanca 
+                2-Juega Pieza Negra  
+                3-Salir               
+                ----------------------""");
         int color = sc.nextInt();
          switch (color){
              default:
@@ -230,21 +227,23 @@ public class Final {
                 }
             }
         }
-    public static void Torre(){
-        for (int i = letra-1; i >= 1; i--) {
-            System.out.print(tablero[letra+i][numero]+" ");
+    public static void Torre() {
+
+            for (int i = 1; i <= letra; i++) {
+                System.out.print(tablero[letra - i][numero] + " ");
+            }
+            for (int i = 1; i < tablero.length - letra; i++) {
+                System.out.print(tablero[letra + i][numero] + " ");
+            }
+            System.out.println();
+            for (int i = 1; i <= numero; i++) {
+                System.out.print(tablero[letra][numero - i] + " ");
+            }
+            for (int i = 1; i < tablero[letra].length - numero; i++) {
+                System.out.print(tablero[letra][numero + i] + " ");
+            }
         }
-        for (int i = 1; i <=letra; i++) {
-            System.out.print(tablero[letra-i][numero]+" ");
-        }
-        System.out.println();
-        for (int i = numero; i >=1; i--) {
-            System.out.print(tablero[letra][numero-i]+" ");
-        }
-        for (int i = 1; i < tablero[letra].length-numero; i++) {
-            System.out.print(tablero[letra][numero+i]+" ");
-        }
-    }
+
     public static void Rey() {
             for (int i = 0; i < tablero.length; i++) {
                 for (int j = 0; j < tablero[i].length; j++) {
@@ -307,21 +306,19 @@ public class Final {
     public static void Dama() {
         System.out.println("Ha seleccionado la Dama, esta pieza es capaz de moverse en cualquier posición las casillas que desee.\n" +
                 "Su dama que se encuentra en: " + posicion + " es capaz de moverse hasta: ");
-        for (int i = letra-1; i >= 1; i--) {
-            System.out.print(tablero[letra+i][numero]+" ");
+        for (int i = 1; i <= letra; i++) {
+            System.out.print(tablero[letra - i][numero] + " ");
         }
-        for (int i = 1; i <=letra; i++) {
-            System.out.print(tablero[letra-i][numero]+" ");
+        for (int i = 1; i < tablero.length - letra; i++) {
+            System.out.print(tablero[letra + i][numero] + " ");
         }
         System.out.println();
-        for (int i = numero; i >=1; i--) {
-            System.out.print(tablero[letra][numero-i]+" ");
+        for (int i = 1; i <= numero; i++) {
+            System.out.print(tablero[letra][numero - i] + " ");
         }
-        for (int i = 1; i < tablero[letra].length-numero; i++) {
-            System.out.print(tablero[letra][numero+i]+" ");
+        for (int i = 1; i < tablero[letra].length - numero; i++) {
+            System.out.print(tablero[letra][numero + i] + " ");
         }
-
-        System.out.println();
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
                 if (posicion.equals(tablero[i][j])) {
@@ -376,7 +373,6 @@ public class Final {
         if(!terminar) {
             getPosicion();
             getpieza();
-            Dibujar();
         }
     }
 }
