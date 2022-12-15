@@ -21,26 +21,24 @@ public class Final {
 
     static void presentacion(){
      System.out.println("""
-             --------------------------------------
-             Bienvenido al reto Nº1 de programación
-             Hoy, jugamos al ajedrez.
-             --------------------------------------
+              --------------------------------------
+             |Bienvenido al reto Nº1 de programación|
+             |Hoy, jugamos al ajedrez.              |
+              --------------------------------------
              """);
-        for (int i = 0; i < tablero.length; i++) {
-            System.out.println();
-            for (int j = 0; j < tablero.length; j++) {
-                System.out.print(tablero[i][j] + " ");
-            }
-        }
+
+        System.out.println();
  }
     public static void getcolor(){
         System.out.println("""
-                ------------------------------------------
-                Seleccione la funcion que desea realizar:
-                ------------------------------------------
-                1-Jugar Pieza Blanca
-                2-Juega Pieza Negra
-                3-Salir""");
+                 
+                 ------------------------------------------
+                |Seleccione la funcion que desea realizar: |
+                |                      --------------------
+                |1-Jugar Pieza Blanca |
+                |2-Juega Pieza Negra  |
+                |-Salir               |
+                 ---------------------""");
         int color = sc.nextInt();
          switch (color){
              default:
@@ -66,6 +64,13 @@ public class Final {
     }
     public static void getPosicion() {
         System.out.println("Lo segundo será introducir su posición en el tablero:");
+        for (int i = 0; i < tablero.length; i++) {
+            System.out.println();
+            for (int j = 0; j < tablero.length; j++) {
+                System.out.print(tablero[i][j] + " ");
+            }
+        }
+        System.out.println();
             posicion = ss.nextLine();
             for ( int i = 0; i < tablero.length; i++) {
                 for ( int j = 0; j < tablero[i].length; j++) {
